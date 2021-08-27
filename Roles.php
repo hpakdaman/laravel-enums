@@ -1,51 +1,31 @@
 <?php
 namespace App\Enums;
-use App\Larabookir\Enum as BaseEnum;
+use App\Enums\Enum;
+// this is a example of diversity of user's roles.
+// you can have your own example.
 
-class Roles extends BaseEnum
-{
-    const CLIENT = 'client';
-    const ROOT = 'root';
-    const ADMIN = 'admin';
-    const MODERATOR = 'moderator';
-    const AUTHOR = 'author';
-    const USER_SUPPORT = 'user-support';
-    const ACCOUNTANT = 'accountant';
-    const EXECUTIVE_USER = 'executive-user';
-    const SALES = 'sales';
-    const VIP = 'vip';
-    const DEVELOPER = 'developer';
+class Example extends Enum
+{	
+	const CLIENT = 'client'; 
+	const ADMIN = 'admin';
+	const MODERATOR = 'moderator';
+	const AUTHOR = 'author';
 
-    function translations()
-    {
-        return [
-            static::CLIENT => 'مشتری',
-            static::ROOT => 'کاربر روت',
-            static::ADMIN => 'ادمین',
-            static::MODERATOR => 'سرپرست',
-            static::AUTHOR => 'نویسنده',
-            static::USER_SUPPORT => 'کاربر پشتیبان',
-            static::ACCOUNTANT => 'کاربر مالی',
-            static::EXECUTIVE_USER => 'کاربر اجرایی',
-            static::SALES => 'کاربر فروش',
-            static::VIP => 'مشتری ویژه',
-            static::DEVELOPER => 'توسعه دهنده',
-        ];
-    }
-
-	static function getWorkerRoles()
+	function translations()
 	{
 		return [
-			Roles::EXECUTIVE_USER,
-			Roles::ACCOUNTANT,
-			Roles::AUTHOR,
-			Roles::USER_SUPPORT,
-			Roles::SALES,
+		    static::CLIENT => 'Client User',
+		    static::ADMIN => 'Aministrator',
+		    static::MODERATOR => 'Moderator User',
+		    static::AUTHOR => 'Blog Writer',
 		];
 	}
 
-	static function getCompanyMembersRoles()
+	static function adminsGroup()
 	{
-		return array_merge(static::getWorkerRoles(), [static::ROOT, static::ADMIN, static::MODERATOR]);
+		return [
+			Roles::ADMIN,
+			Roles::MODERATOR,
+		];
 	}
 }
