@@ -1,5 +1,5 @@
 <?php
-namespace App\Larabookir;
+namespace App\Enums;
 
 abstract class Enum
 {
