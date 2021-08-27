@@ -1,5 +1,5 @@
-# laravel-enums
-a library which provide enum type variable for your Laravel project
+# Laravel Enum
+A library which provide enum type variable for your Laravel project
 
 
 # installation
